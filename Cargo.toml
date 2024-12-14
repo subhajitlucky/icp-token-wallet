@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/icp-token-wallet-backend"
+]
+resolver = "2"
