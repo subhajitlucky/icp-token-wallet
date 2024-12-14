@@ -1,3 +1,13 @@
+type Account = text;
+
 service : {
-    "greet": (text) -> (text) query;
+  init: () -> ();
+  
+  balance_of: (Account) -> (nat64) query;
+  
+  transfer: (Account, nat64) -> (bool);
+  
+  approve: (Account, nat64) -> (bool);
+  
+  allowance: (Account, Account) -> (nat64) query;
 }

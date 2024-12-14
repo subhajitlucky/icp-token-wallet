@@ -14,5 +14,8 @@
   "type": "module",
   "workspaces": [
     "src/icp-token-wallet-frontend"
-  ]
+  ],
+  "dependencies": {
+    "@dfinity/agent": "^2.2.0"
+  }
 }

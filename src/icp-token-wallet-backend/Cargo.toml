@@ -12,3 +12,14 @@ crate-type = ["cdylib"]
 candid = "0.10"
 ic-cdk = "0.16"
 ic-cdk-timers = "0.10" # Feel free to remove this dependency if you don't need timers
+ic-cdk-macros = "0.16"
+
+ic-kit = { version = "0.5.0-alpha.4" }
+icrc = "0.0.1"
+
+
+icrc-ledger-types = "0.1.5"
+serde = "1.0.197"
+
+[patch.crates-io]
+memmap = { package = "memmap2", version = "0.5.3" }
