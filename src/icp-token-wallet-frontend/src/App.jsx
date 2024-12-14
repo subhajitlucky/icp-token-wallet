@@ -9,19 +9,19 @@ function App() {
   const account = "yklxw-q2g2g-3u6de-glprn-zcujc-qn7bm-aziql-briab-rssvl-z6gyp-qae";
 
   
-  useEffect(() => {
-    const fetchBalance = async () => {
-      try {
-        const fetchedBalance = await getBalance(account);
-        setBalance(fetchedBalance);
-      } catch (error) {
-        console.error("Error fetching balance:", error);
-        setError("Failed to fetch balance");
-      }
-    };
+  // useEffect(() => {
+  //   const fetchBalance = async () => {
+  //     try {
+  //       const fetchedBalance = await getBalance(account);
+  //       setBalance(fetchedBalance);
+  //     } catch (error) {
+  //       console.error("Error fetching balance:", error);
+  //       setError("Failed to fetch balance");
+  //     }
+  //   };
 
-    fetchBalance();
-  }, []);
+  //   fetchBalance();
+  // }, []);
 
   const checkBalance = async () => { // Corrected checkBalance function
     try {
@@ -72,7 +72,7 @@ function App() {
           Check Balance
         </button>
         <p style={{ textAlign: 'center', fontSize: '18px', fontWeight: 'bold', color: '#2196F3', marginTop: '10px' }}>
-          Balance: {balance} Tokens
+          Balance: {balance.toString()} Tokens
         </p>
       </div>
 
