@@ -14,7 +14,7 @@ thread_local! {
 pub fn init() {
     // Initialize with some default state if needed
     BALANCES.with(|balances| {
-        balances.borrow_mut().insert("yklxw-q2g2g-3u6de-glprn-zcujc-qn7bm-aziql-briab-rssvl-z6gyp-qae".to_string(), 1000000); // Use a simpler account ID for testing
+        balances.borrow_mut().insert("yklxw-q2g2g-3u6de-glprn-zcujc-qn7bm-aziql-briab-rssvl-z6gyp-qae".to_string(), 1000000);
     });
 }
 
