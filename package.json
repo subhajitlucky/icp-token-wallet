@@ -16,6 +16,7 @@
     "src/icp-token-wallet-frontend"
   ],
   "dependencies": {
-    "@dfinity/agent": "^2.2.0"
+    "@dfinity/agent": "^2.2.0",
+    "dotenv": "^16.4.7"
   }
 }

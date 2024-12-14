@@ -1,7 +1,7 @@
 import { HttpAgent, Actor } from "@dfinity/agent";
 import { idlFactory } from "./your_backend_idl";
 
-const canisterId = "dfdal-2uaaa-aaaaa-qaama-cai";
+const canisterId = "dmalx-m4aaa-aaaaa-qaanq-cai";
 
 const agent = new HttpAgent({
   host: "http://127.0.0.1:4943"
