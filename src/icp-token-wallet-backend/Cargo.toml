@@ -11,15 +11,22 @@ crate-type = ["cdylib"]
 [dependencies]
 candid = "0.10"
 ic-cdk = "0.16"
-ic-cdk-timers = "0.10" # Feel free to remove this dependency if you don't need timers
+ic-cdk-timers = "0.10" # Remove this if not using timers
 ic-cdk-macros = "0.16"
 
+# Added support for building token-related functionality
 ic-kit = { version = "0.5.0-alpha.4" }
 icrc = "0.0.1"
-
-
 icrc-ledger-types = "0.1.5"
-serde = "1.0.197"
+
+# Added Serde for serialization/deserialization
+serde = { version = "1.0.197", features = ["derive"] }
+
+# Added logging dependencies for debugging
+log = "0.4.20"
+env_logger = "0.10.0"
 
 [patch.crates-io]
 memmap = { package = "memmap2", version = "0.5.3" }
+
+# Add more dependencies if required for additional features

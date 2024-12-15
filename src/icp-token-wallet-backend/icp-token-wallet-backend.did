@@ -2,12 +2,17 @@ type Account = text;
 
 service : {
   init: () -> ();
+
+  // Use ICRC2 naming conventions
+  icrc2_balance_of: (Account) -> (nat64) query;
   
-  balance_of: (Account) -> (nat64) query;
+  icrc2_transfer: (Account, nat64) -> (bool);
   
-  transfer: (Account, nat64) -> (bool);
+  icrc2_approve: (Account, nat64) -> (bool);
   
-  approve: (Account, nat64) -> (bool);
+  icrc2_allowance: (Account, Account) -> (nat64) query;
   
-  allowance: (Account, Account) -> (nat64) query;
+  icrc2_metadata: () -> (vec record { text; text }) query;
+  
+  icrc2_total_supply: () -> (nat64) query;
 }
