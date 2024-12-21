@@ -1,37 +1,90 @@
-body {
-  font-family: sans-serif;
-  font-size: 1.5rem;
+.app-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-img {
-  max-width: 50vw;
-  max-height: 25vw;
-  display: block;
-  margin: auto;
+.title {
+  text-align: center;
+  color: #333;
 }
 
-form {
+.balance-container {
+  background-color: white;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.check-balance-button {
+  background-color: #4caf50;
+}
+
+.send-tokens-button {
+  background-color: #2196f3;
+}
+
+.approve-spender-button {
+  background-color: #ffa500;
+}
+
+.check-allowance-button {
+  background-color: #8a2be2;
+}
+
+.fetch-metadata-button {
+  background-color: #007bff;
+}
+
+.fetch-total-supply-button {
+  background-color: #28a745;
+}
+
+.balance-text {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2196f3;
+  margin-top: 10px;
+}
+
+.error-message {
+  background-color: #ffdddd;
+  color: red;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.input-container {
   display: flex;
-  justify-content: center;
-  gap: 0.5em;
-  flex-flow: row wrap;
-  max-width: 40vw;
-  margin: auto;
-  align-items: baseline;
+  flex-direction: column;
+  gap: 10px;
 }
 
-button[type="submit"] {
-  padding: 5px 20px;
-  margin: 10px auto;
-  float: right;
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
 }
 
-#greeting {
-  margin: 10px auto;
-  padding: 10px 60px;
-  border: 1px solid #222;
-}
-
-#greeting:empty {
-  display: none;
+.additional-features-title {
+  margin-top: 20px;
+  color: #333;
 }
