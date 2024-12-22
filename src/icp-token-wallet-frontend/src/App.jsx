@@ -10,6 +10,7 @@ const App = () => {
   const [totalSupply, setTotalSupply] = useState(null);
   const [message, setMessage] = useState({ type: "", text: "" });
   const [loading, setLoading] = useState(false);
+ 
 
   const DEFAULT_ACCOUNT = "yklxw-q2g2g-3u6de-glprn-zcujc-qn7bm-aziql-briab-rssvl-z6gyp-qae";
 
@@ -95,12 +96,12 @@ const App = () => {
     }
   };
 
-  // Fetch initial data on component mount
-  useEffect(() => {
-    checkBalance(DEFAULT_ACCOUNT);
-    fetchMetadata();
-    fetchTotalSupply();
-  }, []);
+  // // Fetch initial data on component mount
+  // useEffect(() => {
+  //   checkBalance(DEFAULT_ACCOUNT);
+  //   fetchMetadata();
+  //   fetchTotalSupply();
+  // }, []);
 
   return (
     <div className="app-container">

@@ -10,6 +10,12 @@ pub struct MetadataEntry {
     pub value: String,
 }
 
+#[derive(CandidType, Deserialize)]
+pub enum TransferResult {
+    ok(bool),
+    err(String)
+}
+
 thread_local! {
     static BALANCES: RefCell<HashMap<String, u64>> = RefCell::new(HashMap::new());
     static TOTAL_SUPPLY: RefCell<u64> = RefCell::new(0);
@@ -42,28 +48,32 @@ pub fn icrc2_metadata() -> Vec<MetadataEntry> {
 
 #[query]
 pub fn icrc2_total_supply() -> u64 {
+
     TOTAL_SUPPLY.with(|supply| *supply.borrow())
 }
 
 #[query]
 pub fn icrc2_balance_of(account: String) -> u64 {
+    
     BALANCES.with(|balances| balances.borrow().get(&account).copied().unwrap_or(0))
 }
 
 #[update]
-pub fn icrc2_transfer(to: String, amount: u64) -> Result<bool, String> {
-    let caller = ic::caller().to_string();
-    ic_cdk::println!("Transfer request from {} to {} amount: {}", caller, to, amount);
-
+pub fn icrc2_transfer(to: String, amount: u64) -> TransferResult {
+    let from = INITIAL_ACCOUNT.to_string();
+    
     BALANCES.with(|balances| {
         let mut balances = balances.borrow_mut();
-        let caller_balance = balances.get(&caller).copied().unwrap_or(0);
-        if caller_balance < amount {
-            return Err(format!("Insufficient balance: {} < {}", caller_balance, amount));
+        let from_balance = balances.get(&from).copied().unwrap_or(0);
+        
+        if from_balance < amount {
+            return TransferResult::err(format!("Insufficient balance: {} < {}", from_balance, amount));
         }
-        *balances.entry(caller.clone()).or_insert(0) -= amount;
-        *balances.entry(to.clone()).or_insert(0) += amount;
+        
+        *balances.entry(from).or_insert(0) -= amount;
+        *balances.entry(to).or_insert(0) += amount;
         ic_cdk::println!("Transfer successful");
-        Ok(true)
+        TransferResult::ok(true)
     })
 }
+

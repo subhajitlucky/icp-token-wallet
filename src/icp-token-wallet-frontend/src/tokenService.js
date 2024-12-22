@@ -40,3 +40,8 @@ export const transferTokens = async (to, amount) => {
     throw error;
   }
 };
+
+
+export const getPrincipalId = () => {
+  return agent.getPrincipal().toString();
+};
