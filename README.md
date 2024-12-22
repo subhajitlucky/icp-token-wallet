@@ -30,18 +30,22 @@ A decentralized token wallet built on the Internet Computer Protocol (ICP) imple
 ```bash
 git clone https://github.com/yourusername/icp-token-wallet.git
 cd icp-token-wallet
+bash```
 
 2.Install dependencies:
 ```bash
 npm install
+bash```
 
 3.Start local Internet Computer replica:
 ```bash
 dfx start --clean --background
+bash```
 
 4.Deploy canisters:
 ```bash
 dfx deploy
+bash```
 
 # ICP Token Wallet
 
