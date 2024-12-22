@@ -28,7 +28,7 @@ A decentralized token wallet built on the Internet Computer Protocol (ICP) imple
 
 1. Clone the repository:
 
-git clone https://github.com/yourusername/icp-token-wallet.git
+git clone https://github.com/subhajitlucky/icp-token-wallet.git
 
 cd icp-token-wallet
 
