@@ -6,6 +6,6 @@ service : {
     "icrc2_metadata": () -> (vec MetadataEntry) query;
     "icrc2_total_supply": () -> (nat64) query;
     "icrc2_transfer": (text, nat64) -> (TransferResult);
-    
+    "get_principal_id" : () -> (text);
     "init": () -> ();
 }

@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "@dfinity/agent": "^2.2.0",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "qrcode.react": "^4.2.0"
   }
 }

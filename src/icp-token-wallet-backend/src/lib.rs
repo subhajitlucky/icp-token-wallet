@@ -77,3 +77,8 @@ pub fn icrc2_transfer(to: String, amount: u64) -> TransferResult {
     })
 }
 
+#[query]
+pub fn get_principal_id() -> String {
+    INITIAL_ACCOUNT.to_string()
+}
+

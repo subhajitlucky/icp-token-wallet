@@ -42,6 +42,11 @@ export const transferTokens = async (to, amount) => {
 };
 
 
-export const getPrincipalId = () => {
-  return agent.getPrincipal().toString();
+export const getPrincipalId = async () => {
+  try {
+    return await tokenService.get_principal_id();
+  } catch (error) {
+    console.error('Failed to get principal ID:', error);
+    throw error;
+  }
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getBalance, getMetadata, getTotalSupply, transferTokens } from "./tokenService";
+import { getBalance, getMetadata, getTotalSupply, transferTokens,getPrincipalId } from "./tokenService";
+import {QRCodeSVG} from 'qrcode.react';
 import "./index.scss";
 
 const App = () => {
@@ -10,7 +11,8 @@ const App = () => {
   const [totalSupply, setTotalSupply] = useState(null);
   const [message, setMessage] = useState({ type: "", text: "" });
   const [loading, setLoading] = useState(false);
- 
+  const [showQR, setShowQR] = useState(false);
+  const [principalId, setPrincipalId] = useState("");
 
   const DEFAULT_ACCOUNT = "yklxw-q2g2g-3u6de-glprn-zcujc-qn7bm-aziql-briab-rssvl-z6gyp-qae";
 
@@ -96,6 +98,16 @@ const App = () => {
     }
   };
 
+  const handleReceive = async () => {
+    try {
+      const id = await getPrincipalId();
+      setPrincipalId(id);
+      setShowQR(true);
+    } catch (error) {
+      handleMessage("error", "Failed to get principal ID");
+    }
+  };
+
   // // Fetch initial data on component mount
   // useEffect(() => {
   //   checkBalance(DEFAULT_ACCOUNT);
@@ -163,6 +175,19 @@ const App = () => {
         </button>
         <p>Total Supply: {totalSupply ? totalSupply.toString() : "N/A"}</p>
       </div>
+
+      <div className="receive-container">
+        <button onClick ={handleReceive} disabled={loading} className="button receive-button">
+          Receive
+        </button>
+        {showQR && (
+          <div className="qr-container">
+            <QRCodeSVG value={principalId} size={256} />
+            <p className="principal-id">{principalId}</p>
+          </div>
+        )}
+      </div>
+
     </div>
   );
 };
