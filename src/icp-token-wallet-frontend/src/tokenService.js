@@ -1,7 +1,7 @@
 import { Actor, HttpAgent } from '@dfinity/agent';
 import { idlFactory } from '../../declarations/icp-token-wallet-backend/icp-token-wallet-backend.did.js';
 
-const canisterId = 'bkyz2-fmaaa-aaaaa-qaaaq-cai';
+const canisterId =process.env.CANISTER_ID_ICP_TOKEN_WALLET_BACKEND;
 
 const agent = new HttpAgent({
   host: process.env.DFX_NETWORK === 'local' ? 'http://localhost:4943' : 'https://ic0.app',
